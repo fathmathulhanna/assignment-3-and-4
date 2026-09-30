@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Form</title>
+</head>
+
+<body>
+
+    <h1>Form is here</h1>
+
+    <form onsubmit="return validateForm()">
+
+        <div>
+            <div>Name</div>
+            <div>
+                <input type="text" name="fullname" id="fullname">
+            </div>
+        </div>
+
+        <br>
+
+        <div>
+            <div>Address</div>
+            <div>
+                <textarea id="address" name="address" rows="5" cols="25"></textarea>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- AGE -->
+        <div>
+            <div>Age</div>
+            <div>
+                <select id="age" name="age">
+                    <option value="">Please select</option>
+                    <option value="0-10">0-10</option>
+                    <option value="10-20">10-20</option>
+                    <option value="20-40">20-40</option>
+                    <option value="40+">40+</option>
+                </select>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- PASSWORD -->
+        <div>
+            <div>Password</div>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <br>
+
+        <!-- GENDER -->
+        <div>
+            <div>Gender</div>
+
+            <span>
+                Male
+                <input type="radio" name="gender" value="male">
+            </span>
+
+            <span>
+                Female
+                <input type="radio" name="gender" value="female">
+            </span>
+        </div>
+
+        <br>
+
+
+        <!-- SUBMIT -->
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+
+    </form>
+
+
+    <script>
+
+        function validateForm() {
+
+            let name = document.getElementById("fullname").value;
+            let address = document.getElementById("address").value;
+            let age = document.getElementById("age").value;
+            let password = document.getElementById("password").value;
+
+            // Name validation
+            if (name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+            // Address validation
+            if (address == "") {
+                alert("Please enter your address");
+                return false;
+            }
+
+            // Age validation
+            if (age == "") {
+                alert("Please select your age");
+                return false;
+            }
+
+            // Password validation
+            if (password == "") {
+                alert("Please enter your password");
+                return false;
+            }
+
+            // Gender validation
+            let gender = document.querySelector('input[name="gender"]:checked');
+
+            if (!gender) {
+                alert("Please select your gender");
+                return false;
+            }
+
+           
+
+            alert("Form submitted successfully!");
+
+            return true;
+        }
+
+    </script>
+
+</body>
+</html>

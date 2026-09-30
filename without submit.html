@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+
+<body>
+
+    <h1>Form is here</h1>
+
+    <form>
+
+        <!-- NAME -->
+        <div>
+            <div>Name</div>
+            <input type="text"
+                   id="fullname"
+                   oninput="validateName()">
+
+            <span id="nameError"></span>
+        </div>
+
+        <br>
+
+        <!-- ADDRESS -->
+        <div>
+            <div>Address</div>
+
+            <textarea id="address"
+                      rows="5"
+                      cols="25"
+                      oninput="validateAddress()"></textarea>
+
+            <span id="addressError"></span>
+        </div>
+
+        <br>
+
+        <!-- AGE -->
+        <div>
+            <div>Age</div>
+
+            <select id="age" onchange="validateAge()">
+                <option value="">Please select</option>
+                <option value="0-10">0-10</option>
+                <option value="10-20">10-20</option>
+                <option value="20-40">20-40</option>
+                <option value="40+">40+</option>
+            </select>
+
+            <span id="ageError"></span>
+        </div>
+
+        <br>
+
+        <!-- PASSWORD -->
+        <div>
+            <div>Password</div>
+
+            <input type="password"
+                   id="password"
+                   oninput="validatePassword()">
+
+            <span id="passwordError"></span>
+        </div>
+
+        <br>
+
+        <!-- GENDER -->
+        <div>
+            <div>Gender</div>
+
+            Male
+            <input type="radio"
+                   name="gender"
+                   value="male"
+                   onchange="validateGender()">
+
+            Female
+            <input type="radio"
+                   name="gender"
+                   value="female"
+                   onchange="validateGender()">
+
+            <span id="genderError"></span>
+        </div>
+
+    </form>
+
+
+    <script>
+
+        // NAME VALIDATION
+        function validateName() {
+
+            let name = document.getElementById("fullname").value;
+
+            if (name == "") {
+                document.getElementById("nameError").innerHTML =
+                    " Please enter your name";
+            }
+            else {
+                document.getElementById("nameError").innerHTML =
+                    " Name is valid";
+            }
+        }
+
+
+        // ADDRESS VALIDATION
+        function validateAddress() {
+
+            let address = document.getElementById("address").value;
+
+            if (address == "") {
+                document.getElementById("addressError").innerHTML =
+                    " Please enter your address";
+            }
+            else {
+                document.getElementById("addressError").innerHTML =
+                    " Address is valid";
+            }
+        }
+
+
+        // AGE VALIDATION
+        function validateAge() {
+
+            let age = document.getElementById("age").value;
+
+            if (age == "") {
+                document.getElementById("ageError").innerHTML =
+                    " Please select your age";
+            }
+            else {
+                document.getElementById("ageError").innerHTML =
+                    " Age is valid";
+            }
+        }
+
+
+        // PASSWORD VALIDATION
+        function validatePassword() {
+
+            let password =
+                document.getElementById("password").value;
+
+            if (password == "") {
+                document.getElementById("passwordError").innerHTML =
+                    " Please enter your password";
+            }
+
+            else if (password.length < 6) {
+                document.getElementById("passwordError").innerHTML =
+                    " Password must be at least 6 characters";
+            }
+
+            else {
+                document.getElementById("passwordError").innerHTML =
+                    " Password is valid";
+            }
+        }
+
+
+        // GENDER VALIDATION
+        function validateGender() {
+
+            let gender =
+                document.querySelector('input[name="gender"]:checked');
+
+            if (!gender) {
+                document.getElementById("genderError").innerHTML =
+                    " Please select your gender";
+            }
+            else {
+                document.getElementById("genderError").innerHTML =
+                    " Gender is valid";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
